@@ -1,0 +1,95 @@
+''' Select Recent existing CM Project '''
+|Object Repository|RECENTCMPROJECT                                                             |
+|id               |value                                                                 |type |
+|projectnamelink  |//tr/th/a[contains(text(),'2016-Capital Improvement-Envelope-Repair')]|xpath|
+
+''' CM Projects - BIDS Section '''
+|Object Repository|BIDSSECTION                        |
+|id               |value                        |type |
+|bidsectionlabel  |//h3[contains(text(),'Bids')]|xpath|
+|newbidbtn        |//input[@title='New Bid']    |xpath|
+
+''' CM Projects - BIDS Section Column validations '''
+|Object Repository   |BIDSSECTIONCOLUMNVALIDATION                                                                                           |
+|id                  |value                                                                                                           |type |
+|actioncol           |//h3[contains(text(),'Bids')]//..//..//..//..//..//..//th[contains(text(),'Action')]                            |xpath|
+|bidnamecol          |//h3[contains(text(),'Bids')]//..//..//..//..//..//..//th[contains(text(),'Bid Name')]                          |xpath|
+|recommendedvendorcol|//h3[contains(text(),'Bids')]//..//..//..//..//..//..//th[contains(text(),'Recommended Vendor')]                |xpath|
+|bidamountcol        |//h3[contains(text(),'Bids')]//..//..//..//..//..//..//th[contains(text(),'Bid Amount')]                        |xpath|
+|bidstatuscol        |//h3[contains(text(),'Bids')]//..//..//..//..//..//..//th[contains(text(),'Bid Status')]                        |xpath|
+|commentscol         |//h3[contains(text(),'Bids')]//..//..//..//..//..//..//th[contains(text(),'Comments')]                          |xpath|
+|vendorcol           |(//h3[contains(text(),'Bids')]//..//..//..//..//..//..//th[contains(text(),'Vendor')])[2]                       |xpath|
+|editlink            |(//h3[contains(text(),'Bids')]//..//..//..//..//..//..//td[@class='actionColumn']/a[contains(text(),'Edit')])[1]|xpath|
+|dellink             |(//h3[contains(text(),'Bids')]//..//..//..//..//..//..//td[@class='actionColumn']/a[contains(text(),'Del')])[1] |xpath|
+|bideditpage         |//h2[contains(text(),'Bid Edit')]                                                                               |xpath|
+
+
+
+''' CM Projects - Top button row '''
+|Object Repository        |CMPROJECTTOPBUTTONROW                                               |
+|id                       |value                                                         |type |
+|generatebidsubmitapproval|(//td/input[@title='Generate Bid and Submit For Approval'])[1]|xpath|
+
+
+''' CM Projects - Approval History '''
+|Object Repository                      |CMPROJECTAPPROVALHISTORYSECTION                                                                                                 |
+|id                                     |value                                                                                                                     |type |
+|approvalrequestsubmitted               |//div[@class='relatedProcessHistory']//table//tbody//tr//td//span[contains(text(),'Approval Request Submitted')]          |xpath|
+|constructionmanagerapproval            |//div[@class='relatedProcessHistory']//table//tbody//tr//td//span[contains(text(),'Construction Project Manger Approval')]|xpath|
+|cosntructionmanagerapprovalorrejectlink|//div[@class='relatedProcessHistory']//table//tbody//tr//td//a[contains(text(),'Approve / Reject')]                       |xpath|
+
+
+''' Create New CM Project '''
+|Object Repository|CREATENEWCMPROJECT                  |
+|id               |value                         |type |
+|newbutton        |.//tr/td[2]/input[@name='new']|xpath|
+
+''' Select CM Project Record Type '''
+|Object Repository |SELECTCMPROJECTTYPE                                        |
+|id                |value                                                |type |
+|selecttypedropdown|//select[@id='p3']/option[contains(text(),'Project')]|xpath|
+|continuebtn       |//input[@title='Continue']                           |xpath|
+
+''' CM Project Edit - Information '''
+|Object Repository       |CMPROJECTINFO                                                                                                                   |
+|id                      |value                                                                                                                     |type |
+|projectname             |//input[@id='Name']                                                                                                       |xpath|
+|buildinglookup          |//label[contains (text(), 'Building')]/../../..//td[2]/div/span/input                                                     |xpath|
+|status                  |.//label[text()='Status']/../../../td[2]//select                                                                          |xpath|
+|worktype                |.//label[text()='Work Type']/../../../td[2]//select                                                                       |xpath|
+|origination             |.//label[text()='Origination']/../../../td[4]//select                                                                     |xpath|
+|task                    |.//label[text()='Task']/../../../td[4]//select                                                                            |xpath|
+|category                |.//label[text()='Category']/../../../td[4]//select                                                                        |xpath|
+|tenant                  |.//label[contains (text(), 'Tenant Name')]/../../../td[2]/input                                                           |xpath|
+|contractagreementtype   |//label[contains(text(),'Contract Agreement Type')]//..//..//select                                                       |xpath|
+|approvalstatusinprogress|//td[@class='labelCol' and contains(text(),'Approval Status')]/../td[@class='dataCol' and contains(text(), 'In Progress')]|xpath|
+|approvalstatusapproved  |//td[@class='labelCol' and contains(text(),'Approval Status')]//..//td/div[contains(text(),'Approved')]                   |xpath|
+
+
+''' CM Project Edit - Key Dates '''
+|Object Repository|KDATE                                                                                     |
+|id               |value                                                                               |type |
+|budgetyear       |//tr[1]/td[1]/span/label[contains (text(), 'Budget Year')]/../../..//td[2]/div/input|xpath|
+|budgetmonth      |.//label[text()='Budget Month']/../../../td[2]//select                              |xpath|
+|requestDate      |.//label[contains (text(), 'Request Date')]/../../..//input                         |xpath|
+|completionDate   |.//label[contains (text(), 'Anticipated Completion Date')]/../../..//input          |xpath|
+
+''' CM Project Edit - Financials '''
+|Object Repository|FINANCIALS                                                                   |
+|id               |value                                                                  |type |
+|estimated        |.//label[contains (text(), 'Total Budgeted/Estimated')]/../../..//input|xpath|
+|budgeted         |//label[text()='Budgeted?']/../../td[2]//select                        |xpath|
+
+''' CM Project Edit - Contacts '''
+|Object Repository|CONTACTS                                                                                     |
+|id               |value                                                                                  |type |
+|consopsmanager   |.//label[contains (text(), 'Construction Operations Manager')]/../../..//div/span/input|xpath|
+|propertymanager  |.//label[contains (text(), 'Property Manager')]/../../..//tr[2]/td[2]/div/span/input   |xpath|
+|assetmanager     |.//label[contains (text(), 'Asset Manager')]/../../..//tr[3]/td[2]/div/span/input      |xpath|
+|directorvp       |.//label[contains (text(), 'Director/VP')]/../../..//tr[4]/td[2]/div/span/input        |xpath|
+|svp              |.//label[contains (text(), 'SVP')]/../../..//tr[5]/td[2]/div/span/input                |xpath|
+
+''' CM Project Edit - SAVE SAVE and NEW CANCEL '''
+|Object Repository|CMPROJECTSAVE                |
+|id               |value                  |type |
+|savebutton       |.//input[@title='Save']|xpath|

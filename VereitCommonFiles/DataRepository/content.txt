@@ -1,0 +1,11 @@
+|Data Repository  |DATASHEET                                                     |
+|Id               |Value                                                         |
+|vereit           |{$suitePath}/../../../testEnvironmentData/data_vereit.xlsx    |
+|cmprojectsbiddata|{$suitePath}/../../../testEnvironmentData/databidcreation.xlsx|
+|cmprojectcreation|{$suitePath}/../../../testEnvironmentData/datacmproject.xlsx  |
+
+|Object Repository|HOME                         |
+|Id               |Value                  |Type |
+|username_textbox |//input[@id='username']|xpath|
+|pwd_textbox      |//input[@id='password']|xpath|
+|login_button     |//input[@id='Login']   |xpath|

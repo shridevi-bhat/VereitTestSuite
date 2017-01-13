@@ -1,0 +1,53 @@
+----
+'''Test Steps'''
+Login to mysalesforcepage.com 
+Go to CM projects 
+Click new 'Project' request for multitenant
+Edit all the required fields 
+Save the project 
+Create a bid with 100000 as quote 
+associate the bid with the CM project
+Generate bid and submit for approval
+Approval by the Construction manager
+Approval by the Property manager
+Approval by Asset manager
+Approval by VP
+Approval by SVP
+Verify each mail sent to the approver
+Verify the approval status
+Log out and close the browser 
+
+'''Pre condition for script execution'''
+1. Create new MRI property
+2. Create new Vendor
+3. Create user roles as SVP,VP, managers
+
+----
+
+|import                          |
+|net.indecomm.autong.api.fitnesse|
+
+!include -c <VereitSuite.VereitCommonFiles 
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.ConstructionCentralHomePage
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.CmProjectsPage.CmProjectsObjectRepository
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.CmProjectsPage.CmProjectsScenarios
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.CmProjectsPage.CmProjectsImplementation
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.BidsPage.BidsScenarios
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.BidsPage.BidsImplementation
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.BidsPage.BidsObjectRepository
+
+
+!|Script                               |AutomationNG                  |
+|set test                              |${PAGE_NAME}                  |
+|set suite path                        |${PAGE_PATH}                  |
+|initialize test setup with result name|${PAGE_NAME}_${defaultBrowser}|
+|login to the Vereit module                                           |
+|cmproject information                                                |
+|create multiple bids for cmproject                                   |
+|generate bid and submit for approval                                 |
+|email to approve by construction manager                             |
+|email to approve by property manager                                 |
+|email to approve by asset manager                                    |
+|email to approve by vp                                               |
+|email to approve by svp                                              |
+|end result                                                           |

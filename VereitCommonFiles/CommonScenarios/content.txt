@@ -1,0 +1,39 @@
+!|Scenario|initialize test setup with result name|resultname                                                              |
+|test File|@resultname                           |Of Type|XML|At Path|./Vereit_report_style|With Style|Vereit_report_style|
+|load      environment                                                                                                    |
+
+!|Scenario  |log result|result|with comment|comment|in page|page|
+|test result|ID=@page&&RES=@result&&CMT=@comment                |
+
+!|Scenario    |start browser and open url|url                                                    |
+|start browser|${defaultBrowser}                                                                 |
+|maximize browser                                                                                |
+|open URL     |@url                                                                              |
+|log result   |COMMENT                   |with comment|Opened the URL: @url.|in page|Default Page|
+
+!|Scenario |login with username _ and password _|username , password                                            |
+|type      |@username                           |into        |{$HOME.username_textbox}       |text field        |
+|type      |@password                           |into        |{$HOME.pwd_textbox}            |text field        |
+|log result|COMMENT                             |with comment|Entering username and password.|in page|Login Page|
+|click     |{$HOME.login_button}                                                                                |
+
+!|Scenario            |logout users        |
+|click                |//div[@id='userNav']|
+|pause  execution  for|2      |seconds     |
+|click                |//a[@title='Logout']|
+|close browser                             |
+
+!|Scenario                 |login to the Vereit module                                    |
+|start browser and open url|{$url}                                                        |
+|login with username       |{$username}|and password|{$password}                          |
+|log result                |COMMENT    |with comment|Login successful|in page|Default Page|
+
+!|Scenario            |tear down                     |
+|click                |(.//input[@title='Delete'])[1]|
+|pause  execution  for|5             |seconds        |
+|variable             |isvisible     |equals  to     |
+|verify  popup  is    |visible                       |
+|If                   |{$isvisible}                  |
+|popup  action        |ok                            |
+|End If                                              |
+|end result                                          |

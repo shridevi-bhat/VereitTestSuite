@@ -1,0 +1,9 @@
+''' CM Project Edit - Information '''
+|Object Repository    |CMMAINTENANCEINFO                                                           |
+|id                   |value                                                                 |type |
+|recordtype           |.//select[@id='p3']                                                   |xpath|
+|buildinglookup       |//label[contains (text(), 'Building')]/../../../td[4]/div/span/input  |xpath|
+|requestdate          |.//label[contains(text(),'Request Date')]/../../../td[2]/div/span/span|xpath|
+|status               |.//label[text()='Status']/../../../td[4]//span/select                 |xpath|
+|estimated            |//label[contains(text(),'Budgeted')]/../../../td[2]/div/input         |xpath|
+|contractagreementtype|.//label[text()='Contract Agreement Type']/../../td[4]/span/select    |xpath|

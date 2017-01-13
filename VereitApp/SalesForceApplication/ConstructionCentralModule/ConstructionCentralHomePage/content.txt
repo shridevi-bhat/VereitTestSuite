@@ -1,0 +1,3 @@
+|Object Repository|HOMETABS                                           |
+|id               |value                                        |type |
+|cmprojecttab     |//nav/ul/li/a[contains(text(),'CM Projects')]|xpath|

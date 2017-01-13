@@ -1,0 +1,46 @@
+----
+'''Test Steps'''
+Login to mysalesforcepage.com 
+Go to CM projects 
+Click new 'Project' request for singletenant
+Edit all the required fields 
+Save the project 
+Create a bid with 5000 as quote 
+associate the bid with the CM project
+Generate bid and submit for approval
+Rejected by the Property manager
+Verify the approval status
+Log out and close the browser 
+
+'''Pre condition for script execution'''
+1. Create new MRI property
+2. Create new Vendor
+3. Create user roles as SVP,VP, managers
+
+----
+
+|import                          |
+|net.indecomm.autong.api.fitnesse|
+
+!include -c <VereitSuite.VereitCommonFiles 
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.ConstructionCentralHomePage
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.CmProjectsPage.CmProjectsObjectRepository
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.CmProjectsPage.CmProjectsScenarios
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.CmProjectsPage.CmProjectsImplementation
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.BidsPage.BidsScenarios
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.BidsPage.BidsImplementation
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.BidsPage.BidsObjectRepository
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.CmMaintenancePage.CmMaintenanceScenario
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.CmMaintenancePage.CmMaintenanceImplementation
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.CmMaintenancePage.CmMaintenanceObjectRepository
+
+!|Script                               |AutomationNG                  |
+|set test                              |${PAGE_NAME}                  |
+|set suite path                        |${PAGE_PATH}                  |
+|initialize test setup with result name|${PAGE_NAME}_${defaultBrowser}|
+|login to the Vereit module                                           |
+|create new cmmaintenance request                                     |
+|associate bid to maintenance request                                 |
+|generate bid                                                         |
+|reject bid via mail                                                  |
+|end result                                                           |

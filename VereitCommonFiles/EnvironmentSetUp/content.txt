@@ -1,0 +1,21 @@
+|Scenario       |read login data from|envyType        |excelsheet                         |
+|load           |Login               |excel sheet from|{$DATASHEET.@envyType}|in|read|Mode|
+|variable       |username            |equals to                                           |
+|getFromExcelRow|2                   |Column          |1                                  |
+|variable       |password            |equals to                                           |
+|getFromExcelRow|2                   |Column          |2                                  |
+|variable       |url                 |equals to                                           |
+|getFromExcelRow|2                   |Column          |3                                  |
+|unload excel sheet                                                                       |
+
+
+!|Scenario           |load environment                   |
+|variable            |loadVereitEnvy         |equals to  |
+|verify              |${executionEnvironment}|With|vereit|
+|If                  |{$loadVereitEnvy}                  |
+|read login data from|vereit                 |excelsheet |
+|End If                                                  |
+
+!|Scenario             |set suite path|path      |
+|variable              |suitePath     |equals  to|
+|get absolute page path|@path                    |

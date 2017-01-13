@@ -1,0 +1,42 @@
+----
+'''Test Steps'''
+Login to mysalesforcepage.com 
+Go to CM projects 
+Edit existing CM project
+add special charater to building name
+save the project details
+verify the error message as no match found
+create new bid with no bid name
+save the bid details
+verify the error message as required field empty
+
+'''Pre condition for script execution'''
+1. Create new MRI property
+2. Create new Vendor
+3. Create user roles as SVP,VP, managers
+
+----
+
+|import                          |
+|net.indecomm.autong.api.fitnesse|
+
+
+!include -c <VereitSuite.VereitCommonFiles 
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.ConstructionCentralHomePage
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.CmProjectsPage.CmProjectsObjectRepository
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.CmProjectsPage.CmProjectsScenarios
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.CmProjectsPage.CmProjectsImplementation
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.BidsPage.BidsScenarios
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.BidsPage.BidsImplementation
+!include -c <VereitSuite.VereitApp.SalesForceApplication.ConstructionCentralModule.BidsPage.BidsObjectRepository
+
+
+!|Script                               |AutomationNG                  |
+|set test                              |${PAGE_NAME}                  |
+|set suite path                        |${PAGE_PATH}                  |
+|initialize test setup with result name|${PAGE_NAME}_${defaultBrowser}|
+|login to the Vereit module                                           |
+|verify error msg on empty required field                             |
+|verify error msg on special characters for building name             |
+|tear down                                                            |
+|logout users                                                         |

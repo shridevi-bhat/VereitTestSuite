@@ -1,0 +1,4 @@
+!include -c <VereitSuite.VereitCommonFiles.CommonConfigurations
+!include -c <VereitSuite.VereitCommonFiles.DataRepository
+!include -c <VereitSuite.VereitCommonFiles.CommonScenarios
+!include -c <VereitSuite.VereitCommonFiles.EnvironmentSetUp

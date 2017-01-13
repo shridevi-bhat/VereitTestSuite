@@ -1,0 +1,45 @@
+!|Scenario            |add new cmproject request                                  |
+|read from data for   |cmprojectsheet|excelsheet from|2|for creating new cmproject|
+|pause  execution  for|2             |seconds                                     |
+
+!|Scenario      |read from data for   |sheetName       |excelsheet from               |rowNumber|for creating new cmproject|
+|load           |@sheetName           |excel sheet from|{$DATASHEET.cmprojectcreation}|in       |read         |Mode        |
+|variable       |building             |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |1                                                                  |
+|variable       |status               |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |2                                                                  |
+|variable       |worktype             |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |3                                                                  |
+|variable       |origination          |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |4                                                                  |
+|variable       |category             |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |5                                                                  |
+|variable       |task                 |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |6                                                                  |
+|variable       |contractagreementtype|equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |7                                                                  |
+|variable       |budgetyear           |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |8                                                                  |
+|variable       |budgetmonth          |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |9                                                                  |
+|variable       |requestdate          |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |10                                                                 |
+|variable       |completiondate       |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |11                                                                 |
+|variable       |estimated            |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |12                                                                 |
+|variable       |budgeted             |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |13                                                                 |
+|variable       |consopsmgr           |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |14                                                                 |
+|variable       |propmgr              |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |15                                                                 |
+|variable       |assetmgr             |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |16                                                                 |
+|variable       |vp                   |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |17                                                                 |
+|show           |evaluate             |{$vp}                                                                               |
+|variable       |svp                  |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |18                                                                 |
+|show           |evaluate             |{$svp}                                                                              |
+

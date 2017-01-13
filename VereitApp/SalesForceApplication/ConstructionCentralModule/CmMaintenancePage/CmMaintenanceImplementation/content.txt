@@ -1,0 +1,66 @@
+!|Scenario            |add new cmmaintenance request                                  |
+|read from data for   |maintenancerequest|excelsheet from|2|for creating new cmproject|
+|pause  execution  for|2                 |seconds                                     |
+
+!|Scenario      |read from data for   |sheetName       |excelsheet from               |rowNumber|for creating new cmproject|
+|load           |@sheetName           |excel sheet from|{$DATASHEET.cmprojectcreation}|in       |read         |Mode        |
+|variable       |recordtype           |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |1                                                                  |
+|variable       |building             |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |2                                                                  |
+|variable       |status               |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |3                                                                  |
+|variable       |worktype             |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |4                                                                  |
+|variable       |origination          |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |5                                                                  |
+|variable       |category             |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |6                                                                  |
+|variable       |task                 |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |7                                                                  |
+|variable       |contractagreementtype|equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |8                                                                  |
+|variable       |budgetyear           |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |9                                                                  |
+|variable       |budgetmonth          |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |10                                                                 |
+|variable       |requestdate          |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |11                                                                 |
+|variable       |completiondate       |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |12                                                                 |
+|variable       |estimated            |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |13                                                                 |
+|variable       |budgeted             |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |14                                                                 |
+|variable       |consopsmgr           |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |15                                                                 |
+|variable       |propmgr              |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |16                                                                 |
+|variable       |assetmgr             |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |17                                                                 |
+|variable       |vp                   |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |18                                                                 |
+|show           |evaluate             |{$vp}                                                                               |
+|variable       |svp                  |equals to                                                                           |
+|getFromExcelRow|@rowNumber           |Column          |19                                                                 |
+|show           |evaluate             |{$svp}                                                                              |
+
+!|Scenario      |associate bid to maintenance request                                             |
+|variable       |rowNumber           |equals  to                                                  |
+|evaluate       |2                                                                                |
+|load           |MainteBidCreation   |excel sheet from|{$DATASHEET.cmprojectsbiddata}|in|read|Mode|
+|variable       |bidbidname          |equals to                                                   |
+|getFromExcelRow|{$rowNumber}        |Column          |1                                          |
+|variable       |bidcontactname      |equals to                                                   |
+|getFromExcelRow|{$rowNumber}        |Column          |2                                          |
+|variable       |bidbidstatusdropdown|equals to                                                   |
+|getFromExcelRow|{$rowNumber}        |Column          |3                                          |
+|variable       |bidbidamount        |equals to                                                   |
+|getFromExcelRow|{$rowNumber}        |Column          |4                                          |
+|variable       |bidcomments         |equals to                                                   |
+|getFromExcelRow|{$rowNumber}        |Column          |5                                          |
+|variable       |bidvendor           |equals to                                                   |
+|getFromExcelRow|{$rowNumber}        |Column          |6                                          |
+|navigate to bid creation                                                                         |
+|unload  excel sheet                                                                              |
+

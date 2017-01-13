@@ -1,0 +1,136 @@
+!|Scenario            |create new cmmaintenance request                                                                          |
+|add new cmmaintenance request                                                                                                   |
+|click                |{$HOMETABS.cmprojecttab}                                                                                  |
+|pause  execution  for|5                         |seconds                                                                        |
+|variable             |isNewButtonPresent        |equals  to                                                                     |
+|wait  for  element   |{$CREATENEWCMPROJECT.newbutton}                                                                           |
+|assert true          |{$isNewButtonPresent}                                                                                     |
+|log result           |{$isNewButtonPresent}     |with comment|New Button is present              |in page|CM Project - Home page|
+|click                |{$CREATENEWCMPROJECT.newbutton}                                                                           |
+|pause  execution  for|4                         |seconds                                                                        |
+|select               |{$recordtype}             |from        |{$CMMAINTENANCEINFO.recordtype}                                   |
+|pause  execution  for|3                         |seconds                                                                        |
+|variable             |isContinueButtonPresent   |equals  to                                                                     |
+|wait  for  element   |{$SELECTCMPROJECTTYPE.continuebtn}                                                                        |
+|assert true          |{$isContinueButtonPresent}                                                                                |
+|log result           |{$isContinueButtonPresent}|with comment|Continue Button is present         |in page|CM Project - Home page|
+|click                |{$SELECTCMPROJECTTYPE.continuebtn}                                                                        |
+|pause  execution  for|3                         |seconds                                                                        |
+|type                 |{$building}               |into        |{$CMMAINTENANCEINFO.buildinglookup}|text field                    |
+|pause  execution  for|3                         |seconds                                                                        |
+|variable             |isStatusDropdownPresent   |equals  to                                                                     |
+|wait  for  element   |{$CMMAINTENANCEINFO.status}                                                                               |
+|assert true          |{$isStatusDropdownPresent}                                                                                |
+|log result           |{$isStatusDropdownPresent}|with comment|Status Dropdown is present         |in page|CMProject page        |
+|select               |{$status}                 |from        |{$CMMAINTENANCEINFO.status}                                       |
+|pause  execution  for|3                         |seconds                                                                        |
+|select               |{$contractagreementtype}  |from        |{$CMMAINTENANCEINFO.contractagreementtype}                        |
+|pause  execution  for|4                         |seconds                                                                        |
+|type                 |{$estimated}              |into        |{$CMMAINTENANCEINFO.estimated}     |text field                    |
+|pause  execution  for|3                         |seconds                                                                        |
+|click                |{$CMMAINTENANCEINFO.requestdate}                                                                          |
+|pause  execution  for|3                         |seconds                                                                        |
+|type                 |{$consopsmgr}             |into        |{$CONTACTS.consopsmanager}         |text area                     |
+|pause  execution  for|2                         |seconds                                                                        |
+|type                 |{$propmgr}                |into        |{$CONTACTS.propertymanager}        |text area                     |
+|pause  execution  for|2                         |seconds                                                                        |
+|type                 |{$assetmgr}               |into        |{$CONTACTS.assetmanager}           |text area                     |
+|pause  execution  for|2                         |seconds                                                                        |
+|click                |{$CMPROJECTSAVE.savebutton}                                                                               |
+|pause  execution  for|4                         |seconds                                                                        |
+|click                |(.//input[@title='Edit'])[1]                                                                              |
+|clear  text          |{$CONTACTS.directorvp}                                                                                    |
+|type                 |{$vp}                     |into        |{$CONTACTS.directorvp}             |text area                     |
+|pause  execution  for|2                         |seconds                                                                        |
+|type                 |{$svp}                    |into        |{$CONTACTS.svp}                    |text area                     |
+|pause  execution  for|2                         |seconds                                                                        |
+|variable             |isSaveButtonPresent       |equals  to                                                                     |
+|wait  for  element   |{$CMPROJECTSAVE.savebutton}                                                                               |
+|assert true          |{$isSaveButtonPresent}                                                                                    |
+|log result           |{$isSaveButtonPresent}    |with comment|Save Button is present             |in page|CMProject page        |
+|click                |{$CMPROJECTSAVE.savebutton}                                                                               |
+|pause  execution  for|4                         |seconds                                                                        |
+|variable             |cmprojecttitledescription |equals  to                                                                     |
+|get  text  from      |//h2[@class='pageDescription']                                                                            |
+|show                 |evaluate                  |{$cmprojecttitledescription}                                                   |
+
+!|Scenario            |generate bid                                      |
+|verify bid columns                                                      |
+|click                |{$CMPROJECTTOPBUTTONROW.generatebidsubmitapproval}|
+|pause  execution  for|30                    |seconds                    |
+|verify  popup  is    |visible                                           |
+|popup  action        |ok                                                |
+|select bid for recommended vendor                                       |
+|click                |{$CMPROJECTTOPBUTTONROW.generatebidsubmitapproval}|
+|pause  execution  for|30                    |seconds                    |
+|logout users                                                            |
+
+!|Scenario            |reject the bid                                                                                        |
+|click                |.//a[text()='Approve / Reject']                                                                       |
+|pause  execution  for|3                      |seconds                                                                       |
+|type                 |Rejected the bid       |into        |.//*[@id='Comments']                     |text area              |
+|pause  execution  for|5                      |seconds                                                                       |
+|click                |.//input[@title='Reject']                                                                             |
+|pause  execution  for|3                      |seconds                                                                       |
+|variable             |statusdenied           |equals  to                                                                    |
+|verify page contains |.//div[text()='Denied']|element                                                                       |
+|assert true          |{$statusdenied}                                                                                       |
+|log result           |{$statusdenied}        |with comment|bid approval status for project is denied|in page|CM Project page|
+
+!|Scenario               |verify email to construction manager                                                                                                                                                         |
+|start browser           |${defaultBrowser}                                                                                                                                                                            |
+|open URL                |https://webmail.indecommglobal.com/owa/                                                                                                                                                      |
+|pause  execution  for   |2                                                                                      |seconds                                                                                              |
+|type                    |sales.us                                                                               |into        |.//input[@id='username']                                               |text field      |
+|pause  execution  for   |5                                                                                      |seconds                                                                                              |
+|type                    |Indecomm@123                                                                           |into        |.//input[@id='password']                                               |text field      |
+|pause  execution  for   |5                                                                                      |seconds                                                                                              |
+|click                   |.//input[@type='submit']                                                                                                                                                                     |
+|pause  execution  for   |5                                                                                      |seconds                                                                                              |
+|variable                |isemailnotpresent                                                                      |equals  to                                                                                           |
+|verify page not contains|//div[contains(text(),'Sandbox: Bid Approval: Project - {$cmprojecttitledescription}')]|element                                                                                              |
+|assert true             |{$isemailnotpresent}                                                                                                                                                                         |
+|log result              |{$isemailnotpresent}                                                                   |with comment|no approve/reject email to construction manager for maintenance project|in page|mail box|
+|close browser                                                                                                                                                                                                         |
+
+!|Scenario             |reject bid via mail                                                                                                                       |
+|start browser         |${defaultBrowser}                                                                                                                         |
+|maximize browser                                                                                                                                                 |
+|open URL              |https://webmail.indecommglobal.com/owa/                                                                                                   |
+|pause  execution  for |2                                                        |seconds                                                                         |
+|type                  |shridevi.bhat                                            |into         |.//input[@id='username']                    |text field           |
+|pause  execution  for |5                                                        |seconds                                                                         |
+|type                  |026_Shree                                                |into         |.//input[@id='password']                    |text field           |
+|pause  execution  for |5                                                        |seconds                                                                         |
+|click                 |.//input[@type='submit']                                                                                                                  |
+|pause  execution  for |5                                                        |seconds                                                                         |
+|click                 |.//img[@title='Reply']                                                                                                                    |
+|pause  execution  for |3                                                        |seconds                                                                         |
+|switch to popup window                                                                                                                                           |
+|select                |ifBdy                                                    |frame                                                                           |
+|verify email message content line by line                                                                                                                        |
+|type                  |Reject                                                   |into         |xpath->//html/body                          |text area            |
+|select  window  number|2                                                                                                                                         |
+|click                 |.//span[text()='Send']/..                                                                                                                 |
+|pause  execution  for |5                                                        |seconds                                                                         |
+|close browser                                                                                                                                                    |
+|start browser         |${defaultBrowser}                                                                                                                         |
+|maximize browser                                                                                                                                                 |
+|open URL              |https://arcp--Stage.cs51.my.salesforce.com                                                                                                |
+|pause  execution  for |1                                                        |seconds                                                                         |
+|type                  |testuser@indecomm.net.stage                              |into         |//input[@id='username']                     |text field           |
+|pause  execution  for |1                                                        |seconds                                                                         |
+|type                  |Presel@123                                               |into         |//input[@id='password']                     |text field           |
+|pause  execution  for |1                                                        |seconds                                                                         |
+|click                 |//input[@id='Login']                                                                                                                      |
+|pause  execution  for |1                                                        |seconds                                                                         |
+|click                 |{$HOMETABS.cmprojecttab}                                                                                                                  |
+|pause  execution  for |5                                                        |seconds                                                                         |
+|click                 |.//th[text()='Project Name']/../../tr[2]/th/a                                                                                             |
+|pause execution for   |5                                                        |seconds                                                                         |
+|variable              |approvalrequestrejectedbyproeprtymanagerfieldPresent     |equals  to                                                                      |
+|wait  for  element    |//div[@class='relatedProcessHistory']//span[contains(text(),'Step: Property Manager Approval')]//..//..//span[contains(text(),'Rejected')]|
+|assert true           |{$approvalrequestrejectedbyproeprtymanagerfieldPresent}                                                                                   |
+|log result            |{$approvalrequestrejectedbyproeprtymanagerfieldPresent}  |with comment |approval request denied by property manager |in page |CM Projects |
+|logout users                                                                                                                                                     |
+

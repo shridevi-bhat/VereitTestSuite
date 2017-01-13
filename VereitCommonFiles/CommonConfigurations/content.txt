@@ -1,0 +1,10 @@
+!|ConfigTable       |
+|key          |value|
+|PAGE_TIME_OUT|10   |
+|WAIT_TIME_OUT|30   |
+
+|Report Layout|Vereit_report_style|
+|Key          |Column Name  |Description    |
+|ID           |ID           |Test ID        |
+|RES          |RESULT       |               |
+|CMT          |COMMENTS     |Test Comments  |

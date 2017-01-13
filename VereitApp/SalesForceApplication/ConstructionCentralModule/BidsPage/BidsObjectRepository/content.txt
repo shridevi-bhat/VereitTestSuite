@@ -1,0 +1,34 @@
+|Object Repository           |BIDEDIT                                                                                                      |
+|id                          |value                                                                                                  |type |
+|bidnametbox                 |//label[contains(text(),'Bid Name')]//..//..//input                                                    |xpath|
+|vendortbox                  |//label[contains(text(),'Vendor')]//..//..//span/input                                                 |xpath|
+|contactnametbox             |//html/body/div[1]/div[2]/table/tbody/tr/td[2]/form/div/div[2]/div[3]/table/tbody/tr[4]/td[2]/input    |xpath|
+|bidstatusselect             |//label[contains(text(),'Bid Status')]//..//..//select                                                 |xpath|
+|bidamounttbox               |//html/body/div[1]/div[2]/table/tbody/tr/td[2]/form/div/div[2]/div[3]/table/tbody/tr[2]/td[4]/div/input|xpath|
+|recommvendorcbox            |//label[contains(text(),'Recommended Vendor')]//..//..//input[@type='checkbox']                        |xpath|
+|commenttarea                |//label[contains(text(),'Comments')]//..//..//textarea                                                 |xpath|
+|reasonfortarea              |//label[contains(text(),'Reason for Specific Recommendation')]//..//..//textarea                       |xpath|
+|savebtn                     |//td[@id='bottomButtonRow']/input[@name='save']                                                        |xpath|
+|savenewbtn                  |//td[@id='bottomButtonRow']/input[@name='save_new']                                                    |xpath|
+|cancelbtn                   |//td[@id='bottomButtonRow']/input[@name='cancel']                                                      |xpath|
+|errormsgonerecommendedvendor|//div[@class='errorMsg' and contains(text(), 'Project can have only one Bid has Recommended vendor')]  |xpath|
+|editbidbtn                  |(.//th[text()='Action']/../../tr[2]/td[1]/a[contains(@title,'Edit')])[1]                               |xpath|
+|editsecbidbtn               |.//th[text()='Action']/../../tr[3]/td[1]/a[contains(@title,'Edit')]                                    |xpath|
+|recommvendorchked           |.//th[text()='Recommended Vendor']/../../tr[2]/td[2]/img                                               |xpath|
+|delbidbtn                   |(.//th[text()='Action']/../../tr[2]/td[1]/a[contains(@title,'Delete')])[1]                             |xpath|
+
+|Object Repository  |BIDDETAILS                                                            |
+|id                 |value                                                           |type |
+|biddetailscmproject|//a[contains(text(),'2016-Capital Improvement-Envelope-Repair')]|xpath|
+
+|Object Repository|BIDEDITFIELDVERIFICATIONS                           |
+|id               |value                                         |type |
+|bidnamelabel     |//label[contains(text(),'Bid Name')]          |xpath|
+|cmprojectlabel   |//label[contains(text(),'CM Project')]        |xpath|
+|vendorlabel      |//label[contains(text(),'Vendor')]            |xpath|
+|contactnamelabel |//label[contains(text(),'Contact Name')]      |xpath|
+|bidstatuslabel   |//label[contains(text(),'Bid Status')]        |xpath|
+|bidamountlabel   |//label[contains(text(),'Bid Amount')]        |xpath|
+|recommvendorlabel|//label[contains(text(),'Recommended Vendor')]|xpath|
+|commentlabel     |//label[contains(text(),'Comments')]          |xpath|
+

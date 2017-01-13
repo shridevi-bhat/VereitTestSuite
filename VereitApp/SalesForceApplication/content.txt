@@ -1,0 +1,8 @@
+!1 Test suite X
+!contents -R2 -g -p -f -h
+
+!path FitNesseRoot/lib/*.jar
+!define TEST_SYSTEM {slim}
+!define SLIM_PORT {0}
+
+
